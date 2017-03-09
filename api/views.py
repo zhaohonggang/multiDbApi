@@ -15,6 +15,7 @@ from django.core.paginator import Paginator
 import datetime
 
 
+
 # Create your views here.
 class UserLoginAPIView(APIView):
     permission_classes = []
@@ -26,6 +27,9 @@ class UserLoginAPIView(APIView):
         if serializer.is_valid(raise_exception=True):
             user = serializer.validated_data['user']
             token, created = ExpiringToken.objects.get_or_create(user=user)
+            response = Response('Setting a cookie')
+            #response.set_cookie('cookie', 'MY COOKIE VALUE')
+            response.set_cookie('Token', token.key)
             if not created:
                 token.created = datetime.datetime.utcnow()
                 token.save()

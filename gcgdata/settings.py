@@ -26,7 +26,7 @@ SECRET_KEY = 'cuq3h@ex7+31qqe0@vhns$5#&1!2@7+y79q1domvdl&e#wc554'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com','gcgdata.localhost','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['mysite.com', 'gcgdata.localhost', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -145,3 +145,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 EXPIRING_TOKEN_LIFESPAN = datetime.timedelta(minutes=20)
+
+SESSION_COOKIE_DOMAIN = '.localhost'
